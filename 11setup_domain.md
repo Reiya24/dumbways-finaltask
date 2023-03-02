@@ -54,8 +54,9 @@ buat ansible playbook
         content: |
           dns_cloudflare_email = {{email}}
           dns_cloudflare_api_key = {{api_token}}
-    - name: jalankan certbot
-      shell: "sudo certbot -i nginx --non-interactive --agree-tos --email reiya2307@gmail.com --dns-cloudflare --dns-cloudflare-credentials //home/reiya24/cloudflare.ini -d reiya.my.id  -d *.reiya.my.id"
+#    - name: jalankan certbot
+#      shell: "sudo certbot -i nginx --non-interactive --agree-tos --email reiya2307@gmail.com --dns-cloudflare --dns-cloudflare-credentials //home/reiya24/cloudflare.ini -d reiya.my.id  -d *.reiya.my.id"
+echo "0 12 1 * * /usr/bin/certbot renew --quiet" >> /var/spool/cron/crontabs/reiya24
 
   vars:
     - email: "reiya2307@gmail.com"
