@@ -266,11 +266,11 @@ pipeline {
     environment{
         def branch = "production"
         def nama_repository = "origin"
-        def directory = "~/be-dumbmerch"
+        def directory = "~/fe-dumbmerch"
         def credential = 'id_rsa'
         def server = 'reiya24@10.116.106.150'
-        def docker_image = 'reiya24/dumbmerch-backend-production'
-        def nama_container = 'backend-production'
+        def docker_image = 'reiya24/dumbmerch-frontend-production'
+        def nama_container = 'frontend-production'
     }
 
     options {
@@ -368,6 +368,7 @@ pipeline {
     }
 }
 ```
+![](.13setup_jenkins_images/ab929f94.png)
 
 ## setup github webhook
 pada repository github > pilih setting > webhook, masukan

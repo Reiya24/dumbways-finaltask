@@ -54,10 +54,6 @@ buat ansible playbook
         content: |
           dns_cloudflare_email = {{email}}
           dns_cloudflare_api_key = {{api_token}}
-#    - name: jalankan certbot
-#      shell: "sudo certbot -i nginx --non-interactive --agree-tos --email reiya2307@gmail.com --dns-cloudflare --dns-cloudflare-credentials //home/reiya24/cloudflare.ini -d reiya.my.id  -d *.reiya.my.id"
-echo "0 12 1 * * /usr/bin/certbot renew --quiet" >> /var/spool/cron/crontabs/reiya24
-
   vars:
     - email: "reiya2307@gmail.com"
     - api_token: "api_token"
@@ -65,11 +61,21 @@ echo "0 12 1 * * /usr/bin/certbot renew --quiet" >> /var/spool/cron/crontabs/rei
 ```
 ![](.11setup_domain_images/1a43b058.png)
 
-jalankan certbot
+jalankan script ansible
 ```shell
 ansible-playbook nama_file.yaml
 ```
 ![](.11setup_domain_images/8a407fa5.png)
+
+karena certbot tidak mengdukung mode interaktif untuk wildcard, kita perlu
+menjalankannya secara manual
+```dockerfile
+certbot -i nginx \
+  --dns-cloudflare \
+  --dns-cloudflare-credentials lokasi_API-key \
+  -d domain_yang_ingin_didaftarkan \
+  -d *.domain_yang_ingin_didaftarkan
+```
 
 setup reverse proxy berhasil
 ![](.11setup_domain_images/aef02d5e.png)

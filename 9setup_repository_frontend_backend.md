@@ -8,7 +8,7 @@ buat ansible playbook
   tasks:
 
     - name: setup git config
-      shell: "git config --global user.email 'reiya2307@gmail.com' &&   git config --global user.name 'Reiya Tenggara'"
+      shell: "git config --global user.email 'reiya2307@gmail.com' && git config --global user.name 'Reiya Tenggara'"
 
     - name: clone frontend
       ansible.builtin.git:
@@ -21,8 +21,7 @@ buat ansible playbook
         path: /home/{{ansible_user}}/fe-dumbmerch/.git
 
     - name: setup ulang git
-      shell: "cd /home/{{ansible_user}}/fe-dumbmerch && git init && git add . && git add . && git commit -m 'first-setup' && git branch staging && git branch production && git branch cicd && git branch deployment"
-
+      shell: "cd /home/{{ansible_user}}/fe-dumbmerch && git init && git add . && git commit -m 'first-setup' && git branch staging && git branch production && git branch cicd && git branch deployment"
 
     - name: clone backend
       ansible.builtin.git:
@@ -35,10 +34,10 @@ buat ansible playbook
         path: /home/{{ansible_user}}/be-dumbmerch/.git
 
     - name: setup ulang git
-      shell: "cd /home/{{ansible_user}}/be-dumbmerch && git init && git add . && git add . && git commit -m 'first-setup' && git branch staging && git branch production && git branch cicd && git branch deployment"
+      shell: "cd /home/{{ansible_user}}/be-dumbmerch && git add . && git add . && git commit -m 'first-setup' && git branch staging && git branch production && git branch cicd && git branch deployment"
 
 ```
-![](.9setup_repository_frontend_backend_images/45a2b49c.png)
+![](.9setup_repository_frontend_backend_images/3b563267.png)
 
 jalankan ansible playbook
 ```shell

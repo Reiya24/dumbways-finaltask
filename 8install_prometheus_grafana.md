@@ -16,15 +16,18 @@ buat ansible playbook
       copy:
         dest: /home/{{ansible_user}}/konfigurasi_prometheus/prometheus.yml
         content: |
-          global:
-            scrape_interval: 5s
-            evaluation_interval: 5s
-
-          scrape_configs:
-            - job_name: prometheus
-              static_configs:
-                - targets: [10.116.106.150:9100,103.67.186.92:9100,103.67.186.89:9100]
-
+            global:
+              scrape_interval: 5s
+              evaluation_interval: 5s
+            
+            scrape_configs:
+              - job_name: prometheus
+                static_configs:
+                  - targets: [10.116.106.150:9100,10.116.106.170:9100,10.116.106.219:9100]
+              - job_name: "Jenkins Job"
+                metrics_path: '/prometheus'
+                static_configs:
+                  - targets: [10.116.106.170:8123]
 
     - name: deploy Docker Compose
       community.docker.docker_compose:
@@ -54,10 +57,8 @@ buat ansible playbook
                 - grafana-storage:/etc/grafana/config.ini
           volumes:
             grafana-storage:
-
-
 ```
-![](.8install_prometheus_grafana_images/e2ecce21.png)
+![](.8install_prometheus_grafana_images/.png)
 
 jalankan ansible playbook
 ```shell

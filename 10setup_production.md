@@ -14,7 +14,7 @@ buat file .env
 ![](.10setup_production_images/969a445a.png)
 
 buat Dockerfile
-```shell
+```dockerfile
 FROM node:16-alpine as build
 WORKDIR /home/app
 COPY . .

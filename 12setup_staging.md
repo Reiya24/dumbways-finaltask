@@ -92,5 +92,5 @@ simpan perubahan di git
 ![](.12setup_staging_images/699ebba0.png)
 
 setup berhasil
-![](.12setup_staging_images/f502ec48.png)
+![](.12setup_staging_images/34bb700a.png)
 ![](.12setup_staging_images/a60daf33.png)

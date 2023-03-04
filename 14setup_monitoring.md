@@ -36,12 +36,21 @@ untuk free disk space
 ```shell
 node_filesystem_avail_bytes{instance="10.116.106.170:9100"} / 1073741824
 ```
-![](.14setup_monitoring_images/1d8b01b1.png)
-
 masukan title panel, klik apply
+
+untuk jenkins success build
+```shell
+sum(default_jenkins_builds_success_build_count_total)
+```
+
+untuk jenkins failed build  
+```shell
+sum(default_jenkins_builds_failed_build_count_total)
+```
 
 save dashboard
 ![](.14setup_monitoring_images/1d3b25a4.png)
+![](.14setup_monitoring_images/553cce44.png)
 
 # alerting
 ## setup integrasi dengan slack dengan grafana
